@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update</title>
+</head>
+<body>
+<h1>Update publications</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" value="{{ post.title }}">
+    <br><br>
+    <textarea name="description">{{ post.description }}</textarea>
+    <br><br>
+    <input type="file" name="photo">
+    <br><br>
+    <input type="file" name="video">
+    <br><br>
+    <button type="submit">Save</button>
+</form>
+<br>
+<a href="{% url 'detail' post.id %}"><button>Back</button></a>
+</body>
+</html>

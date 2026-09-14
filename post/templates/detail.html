@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+<a href="{% url 'home' %}"><button>Back</button></a>
+<h1>{{ post.title }}</h1>
+{% if post.photo %}
+    <img src="{{ post.photo.url }}" width="600">
+{% endif %}
+{% if post.video %}
+    <br><br>
+    <video width="600" controls>
+        <source src="{{ post.video.url }}" type="video/mp4">
+    </video>
+{% endif %}
+<p>{{ post.description }}</p>
+<p>{{ post.created_at }}</p>
+<a href="{% url 'update' post.id %}"><button>Update</button></a>
+<a href="{% url 'delete' post.id %}"><button>Delete</button></a>
+</body>
+</html>
