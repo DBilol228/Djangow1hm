@@ -67,7 +67,7 @@
             {% for post in posts %}
                 <div class="post">
                     <a href="{% url 'detail' post.id %}">{% if post.photo %}<img src="{{ post.photo.url }}">{% endif %}<h3>{{ post.title }}</h3></a>
-                    <p>{{ post.description|truncatewords:15 }}</p>
+                    <p>{{ post.description }}</p>
                 </div>
             {% empty %}
                 <p>No publication found</p>
